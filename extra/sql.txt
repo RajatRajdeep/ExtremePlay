@@ -1,0 +1,170 @@
+-- Adminer 4.5.0 MySQL dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `blog`;
+CREATE TABLE `blog` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(2000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `blog` (`id`, `message`) VALUES
+(4,	'<h4 class=\"hero__title\" style=\"text-align: center;\">Red Bull King of The Air 2018</h4>\r\n<p style=\"text-align: center;\">&nbsp;</p>\r\n<p style=\"text-align: center;\"><img src=\"https://i.ytimg.com/vi/obuKJB8O1lk/maxresdefault.jpg\" alt=\"\" width=\"716\" height=\"403\" /></p>\r\n<p style=\"text-align: center;\">&nbsp;</p>\r\n<p style=\"text-align: center;\">The most badass, big-air Kiteboarding contest in the world returns. It&rsquo;s is all about the amplitude as contestants go head-to-head in a &ldquo;flag out&rdquo; competition format. During the two week weather window riders will only face-off in the perfect conditions &ndash; when the legendary Cape Doctor is at its epic best, punching out consistent wind speeds of over 30 knots and providing the perfect swell from which to boost some extreme manoeuvres.</p>'),
+(5,	'<h4 class=\"heading heading--small\" style=\"text-align: center;\">Rotorua, New Zealand</h4>\r\n<p style=\"text-align: center;\"><img src=\"http://www.sicklines.com/wp-content/uploads/2016/03/R-Dog.jpg\" alt=\"\" width=\"655\" height=\"436\" /></p>\r\n<p style=\"text-align: center;\"><span class=\"linkify\">The kick-off event of the 2018 season, sees Freeride MTB\'s elite return to the lush trails of the rider-favourite course in Rotorua amongst the famed redwoods in the Whakarewarewa Forest trail network.</span></p>');
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(2000) NOT NULL,
+  `description` varchar(2000) NOT NULL,
+  `image` varchar(2000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `category` (`id`, `category`, `description`, `image`) VALUES
+(2,	'BMX',	'',	'img/andhika-soreng-326636 - Copy.jpg'),
+(3,	'Parkour',	'',	'img/gabriel-jimenez-261385 - Copy.jpg'),
+(4,	'Scootering',	'',	'img/Scootering.jpg'),
+(5,	'Surfing',	'',	'img/marcus-dall-col-1241 - Copy.jpg'),
+(6,	'Skateboarding',	'',	'img/john-verhoestra-295155.jpg'),
+(7,	'Mountain biking',	'',	'img/downhill.jpg'),
+(8,	'Snowboarding',	'',	'img/joshua-reddekopp-217223.jpg'),
+(9,	'Mountaineering',	'',	'img/mountaineers.jpg'),
+(10,	'Gliding',	'',	'img/gliding - Copy.jpg'),
+(11,	'Rafting',	'',	'img/cynthia-andres-346540.jpg'),
+(12,	'Trekking',	'',	'img/Trekking.jpg'),
+(13,	'Skydiving',	'',	'img/filipe-dos-santos-mendes-183138 - Copy.jpg'),
+(14,	'Horse Riding',	'',	'img/melanie-hartshorn-348846.jpg'),
+(15,	'Scuba Diving',	'',	'img/anurag-harishchandrakar.jpg'),
+(16,	'Wingsuit flying',	'',	'img/jarin-bontrager-174756.jpg'),
+(17,	'Base Jumping',	'',	'img/basejumping.jpg'),
+(18,	'Free Flying',	'',	'img/Freeflying.jpg'),
+(19,	'Hiking',	'',	'img/hike.jpg'),
+(20,	'Cycling',	'',	'img/cycling.jpg');
+
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE `event` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parentid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `title` varchar(2000) NOT NULL,
+  `image` varchar(2000) NOT NULL,
+  `datetime` varchar(2000) NOT NULL,
+  `location` varchar(2000) NOT NULL,
+  `description` varchar(2000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `event` (`id`, `parentid`, `userid`, `title`, `image`, `datetime`, `location`, `description`) VALUES
+(1,	20,	2,	'Mandore Marathon',	'img/andhika-soreng-326636.jpg',	'2018-01-29 13:54:44',	'Jodhpur',	'Cycling'),
+(9,	6,	2,	'Skater Paradise',	'images/chris-brignola-7766.jpg',	'2018-01-29 16:15:02',	'Jodhpur',	'Skateboarding in Jodhpur'),
+(10,	4,	5,	'Freestyle Scootering Jam',	'images/1517230712.jpg',	'2018-01-29 16:15:02',	'Kota',	'With Friends'),
+(11,	4,	2,	'Scootering',	'images/1517230846.jpg',	'2018-01-29 16:15:02',	'Udaipur',	'Scooter with friends'),
+(12,	20,	2,	'Kaylana Road Ride',	'images/1517231068.jpg',	'2018-01-29 16:15:02',	'Ajmer',	'25 kms and return'),
+(14,	20,	2,	'Ratanada to ITC Hotel Ride',	'images/1517231379.jpg',	'',	'Jodhpur',	'30kms and Return'),
+(16,	2,	2,	'BMX ',	'images/1517231751.jpg',	'2018-01-29 16:15:02',	'Jodhpur',	'Show your BMX Skills'),
+(17,	19,	2,	'ccc',	'images/1517234165.jpg',	'c',	'ccc',	'ccc'),
+(19,	20,	2,	'Cycling',	'images/1517257655.jpg',	'18-01-29 16:15:02',	'Om Banna',	'70km ride and Back'),
+(20,	6,	2,	'Kick Flips',	'images/1517257802.jpg',	'2018-01-29 16:15:02',	'At Wood ward',	'Flip '),
+(21,	6,	2,	'Slide',	'images/1517257983.jpg',	'2018-01-29 16:15:02',	'Wood ward',	'Skate'),
+(22,	6,	2,	'Skate Skate',	'images/1517258025.jpg',	'2018-01-29 16:15:02',	'Wood ward',	'Skate '),
+(23,	3,	2,	'Flips',	'images/1517258169.jpg',	'2018-01-29 16:15:02',	'Streets of Jodhpur',	'Run'),
+(24,	5,	2,	'Surf',	'images/1517258268.jpg',	'2018-01-29 16:15:02',	'Near Venice Cali',	'Surf Surf');
+
+DROP TABLE IF EXISTS `eventmember`;
+CREATE TABLE `eventmember` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `eventid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `eventmember` (`id`, `userid`, `eventid`) VALUES
+(6,	3,	17),
+(10,	2,	17),
+(11,	2,	10),
+(12,	2,	16),
+(13,	2,	1),
+(14,	2,	14),
+(15,	2,	9),
+(16,	2,	18),
+(17,	2,	19),
+(18,	2,	20),
+(19,	2,	21),
+(20,	2,	22),
+(21,	2,	23),
+(22,	2,	24),
+(23,	3,	10),
+(24,	3,	11),
+(25,	3,	23),
+(26,	3,	16),
+(27,	3,	14);
+
+DROP TABLE IF EXISTS `interest`;
+CREATE TABLE `interest` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `categoryid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `interest` (`id`, `userid`, `categoryid`) VALUES
+(5,	2,	20),
+(8,	2,	2),
+(9,	2,	4),
+(10,	2,	5),
+(11,	3,	2),
+(12,	3,	4),
+(13,	3,	8),
+(14,	3,	3);
+
+DROP TABLE IF EXISTS `media`;
+CREATE TABLE `media` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `path` varchar(2000) NOT NULL,
+  `type` varchar(2000) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `parentid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `media` (`id`, `path`, `type`, `userid`, `parentid`) VALUES
+(3,	'images/1517256868.jpg',	'profile',	2,	9),
+(4,	'images/1517256967.jpg',	'profile',	2,	13);
+
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE `post` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `text` varchar(2000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `post` (`id`, `userid`, `text`) VALUES
+(9,	2,	'Ghora Ghati'),
+(13,	2,	'Scootering');
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `password` varchar(2000) NOT NULL,
+  `fullname` varchar(2000) NOT NULL,
+  `profession` varchar(2000) NOT NULL,
+  `birthday` varchar(2000) NOT NULL,
+  `image` varchar(2000) NOT NULL,
+  `phone` varchar(2000) NOT NULL,
+  `email` varchar(2000) NOT NULL,
+  `address` varchar(2000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `user` (`id`, `password`, `fullname`, `profession`, `birthday`, `image`, `phone`, `email`, `address`) VALUES
+(0,	'admin123',	'Administrator',	'',	'',	'',	'',	'',	''),
+(2,	'user123',	'Divyavrat',	'Coder',	'21 February 1994',	'images/1517254463.jpg',	'8890055140',	'divyavrat@gmail.com',	'Jodhpur'),
+(3,	'12345',	'Vikram Vaibav',	'',	'13/10/1996',	'images/1517258536.jpg',	'9660155401',	'vikramvaibhav@outlook.com',	'jodhpur');
+
+-- 2018-01-29 23:48:18
